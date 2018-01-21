@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 # Author: Carlo C. del Mundo <cdel@cs.washington.edu>
-# Returns the top-k images and their scores given a path to a dataset.
+# Returns the top-k images and their scores given a folder containing images.
 # Usage:
-#   python3 image_selector.py --image_dir /opt/models/images/
+#   On Ubuntu 16.04:
+#       bazel run :image_selector -- --image_dir /opt/models/images/
+#   On Mac OS X:
+#       bazel run --config macos :image_selector -- --image_dir /opt/models/images/
+#
+#   Sample Output:
+#   INFO: Running command line: bazel-bin/products/image_selector --image_dir /opt/models/images/
+#   /opt/models/images/ILSVRC2012_val_00000470.JPEG. Score: 0.33189800767936795
+#   /opt/models/images/ILSVRC2012_val_00000517.JPEG. Score: 0.08722822272474651
+#   /opt/models/images/ILSVRC2012_val_00000228.JPEG. Score: 0.008819753286334775
 
 import argparse
 from core import utils
