@@ -13,4 +13,4 @@ You must have the following installed to run tests and executables:
 
 To run the test suite, simply do:
 
-*./run_tests.sh*
+*./run_tests.py*
