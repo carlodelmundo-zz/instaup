@@ -27,12 +27,11 @@ def validate_score(score):
 
 
 # TODO (carlo): do basic error checking for (image_path, score) pairs.
-def _images_and_scores(json_path):
-    json_data = _read_json(json_path)
+def _images_and_scores(dataset_path):
+    json_data = _read_json(dataset_path + "dataset.json")
     images_and_scores = []
-    path = json_data["path"]
     for entry in json_data["entries"]:
-        filename = path + entry["filename"]
+        filename = dataset_path + entry["filename"]
         score = entry["score"]
         validate_filename(filename)
         validate_score(score)
