@@ -1,8 +1,8 @@
 # Author: Carlo C. del Mundo <cdel@cs.washington.edu>
-import regression_dataset
+from core import regression_dataset
 import unittest
 
-_SAMPLE_TRAINING_SET = "./core/testdata/json/sample_training_set.json"
+_SAMPLE_TRAINING_SET = "./tests/testdata/json/sample_training_set.json"
 
 class TestRegressionDataset(unittest.TestCase):
 

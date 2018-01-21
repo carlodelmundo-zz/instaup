@@ -7,17 +7,3 @@ py_library(
     srcs = ["regression_dataset.py"],
     srcs_version = "PY3",
 )
-
-py_test(
-    name = "regression_dataset_test",
-    srcs = ["regression_dataset_test.py"],
-    default_python_version = "PY3",
-    srcs_version = "PY3",
-    data = [
-        "//core/testdata:images",
-        "//core/testdata:json",
-    ],
-    deps = [
-        ":regression_dataset"
-    ]
-)

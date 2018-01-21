@@ -9,7 +9,7 @@ import subprocess
 import sys
 
 PACKAGES = [
-    "//core:all",
+    "//tests:all",
 ]
 
 
