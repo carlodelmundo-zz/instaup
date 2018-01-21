@@ -1,0 +1,4 @@
+ILSVRC2012_val_00000507.JPEG filter=lfs diff=lfs merge=lfs -text
+ILSVRC2012_val_00000523.JPEG filter=lfs diff=lfs merge=lfs -text
+ILSVRC2012_val_00000524.JPEG filter=lfs diff=lfs merge=lfs -text
+ILSVRC2012_val_00000539.JPEG filter=lfs diff=lfs merge=lfs -text

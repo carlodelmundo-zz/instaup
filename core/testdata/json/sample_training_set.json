@@ -1,0 +1,22 @@
+{
+    "description": "Sample image dataset for (image,score) pairs.",
+    "images_path": "./core/testdata/images/",
+    "entries": [
+        {
+            "filename": "ILSVRC2012_val_00000523.JPEG",
+            "score": 0.998
+        },
+        {
+            "filename": "ILSVRC2012_val_00000539.JPEG",
+            "score": 0.734
+        },
+        {
+            "filename": "ILSVRC2012_val_00000507.JPEG",
+            "score": 0.343
+        },
+        {
+            "filename": "ILSVRC2012_val_00000524.JPEG",
+            "score": 0.123
+        }
+    ]
+}
