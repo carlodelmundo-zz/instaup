@@ -17,7 +17,7 @@ def _get_image_paths(dir_path):
     dir_path = os.path.expanduser(dir_path)
     if not os.path.isdir(dir_path):
         raise ValueError(
-            "Expected @dir_path = {} to be a directory.".format(dirpath))
+            "Expected @dir_path = {} to be a directory.".format(dir_path))
     image_paths = []
     for root, _, fnames in sorted(os.walk(dir_path)):
         for fname in sorted(fnames):
