@@ -5,18 +5,11 @@
 #   python3 image_selector.py --image_dir /opt/models/images/
 
 import argparse
+from core import utils
 import os
 import numpy as np
 import random
 import operator
-
-_IMG_EXTENSIONS = [".jpg", ".jpeg", ".png", ".ppm", ".bmp", ".pgm"]
-
-
-def _is_image_file(filename):
-    """Return True if the filename ends with a known image extension"""
-    filename_lower = filename.lower()
-    return any(filename_lower.endswith(ext) for ext in _IMG_EXTENSIONS)
 
 
 def _get_image_paths(dir_path):
@@ -28,7 +21,7 @@ def _get_image_paths(dir_path):
     image_paths = []
     for root, _, fnames in sorted(os.walk(dir_path)):
         for fname in sorted(fnames):
-            if _is_image_file(fname):
+            if utils.is_image_file(fname):
                 path = os.path.join(root, fname)
                 image_paths.append(path)
     return image_paths

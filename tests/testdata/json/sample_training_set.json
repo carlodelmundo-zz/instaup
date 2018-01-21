@@ -1,6 +1,6 @@
 {
     "description": "Sample image dataset for (image,score) pairs.",
-    "images_path": "./core/testdata/images/",
+    "path": "/opt/datasets/sample_images/",
     "entries": [
         {
             "filename": "ILSVRC2012_val_00000523.JPEG",
