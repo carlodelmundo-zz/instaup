@@ -26,7 +26,6 @@ def validate_score(score):
         raise ValueError("The score {} may not be greater than 1.0.".format(score))
 
 
-# TODO (carlo): do basic error checking for (image_path, score) pairs.
 def _images_and_scores(dataset_path):
     json_data = _read_json(dataset_path + "dataset.json")
     images_and_scores = []
