@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
 # Author: Carlo C. del Mundo <cdel@cs.washington.edu>
-# Returns the top-k images and their scores given a path to a dataset.
+# Returns the top-k images and their scores given a folder containing images.
 # Usage:
-#   python3 image_selector.py --image_dir /opt/models/images/
+#   On Ubuntu 16.04:
+#       bazel run :image_selector -- --image_dir /opt/models/images/
+#   On Mac OS X:
+#       bazel run --config macos :image_selector -- --image_dir /opt/models/images/
+#
+#   Sample Output:
+#   INFO: Running command line: bazel-bin/products/image_selector --image_dir /opt/models/images/
+#   /opt/models/images/ILSVRC2012_val_00000470.JPEG. Score: 0.33189800767936795
+#   /opt/models/images/ILSVRC2012_val_00000517.JPEG. Score: 0.08722822272474651
+#   /opt/models/images/ILSVRC2012_val_00000228.JPEG. Score: 0.008819753286334775
 
 import argparse
+from core import utils
 import os
 import numpy as np
 import random
 import operator
-
-_IMG_EXTENSIONS = [".jpg", ".jpeg", ".png", ".ppm", ".bmp", ".pgm"]
-
-
-def _is_image_file(filename):
-    """Return True if the filename ends with a known image extension"""
-    filename_lower = filename.lower()
-    return any(filename_lower.endswith(ext) for ext in _IMG_EXTENSIONS)
 
 
 def _get_image_paths(dir_path):
@@ -24,11 +26,11 @@ def _get_image_paths(dir_path):
     dir_path = os.path.expanduser(dir_path)
     if not os.path.isdir(dir_path):
         raise ValueError(
-            "Expected @dir_path = {} to be a directory.".format(dirpath))
+            "Expected @dir_path = {} to be a directory.".format(dir_path))
     image_paths = []
     for root, _, fnames in sorted(os.walk(dir_path)):
         for fname in sorted(fnames):
-            if _is_image_file(fname):
+            if utils.is_image_file(fname):
                 path = os.path.join(root, fname)
                 image_paths.append(path)
     return image_paths

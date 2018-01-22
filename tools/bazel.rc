@@ -1,0 +1,4 @@
+build --python_path="/usr/bin/python3" --force_python="PY3" \
+      --host_force_python="PY3"
+
+build:macos --python_path="/usr/local/bin/python3" --python_path="/anaconda/bin/python3"
