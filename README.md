@@ -13,7 +13,7 @@ You must have the following installed to run tests and executables:
 ## Testing
 
 Download the [sample
-dataset](homes.cs.washington.edu/~cdel/contentbooster/sample_dataset.zip) and
+dataset](https://homes.cs.washington.edu/~cdel/contentbooster/sample_dataset.zip) and
 place it under `/opt/datasets/`.
 
 
