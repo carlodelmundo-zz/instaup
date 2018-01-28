@@ -11,3 +11,13 @@ py_binary(
         "//core:utils",
     ],
 )
+
+py_binary(
+    name = "model_trainer",
+    srcs = ["model_trainer.py"],
+    main = "model_trainer.py",
+    srcs_version = "PY3",
+    deps = [
+        "//core:regression_dataset",
+    ],
+)
