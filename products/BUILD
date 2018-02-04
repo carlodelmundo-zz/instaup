@@ -8,6 +8,8 @@ py_binary(
     main = "image_selector.py",
     srcs_version = "PY3",
     deps = [
+        "//core:inference",
+        "//core:json_writer",
         "//core:utils",
     ],
 )

@@ -32,10 +32,10 @@ def _validate_score(score):
 
 
 def _images_and_scores(dataset_path):
-    json_data = _read_json(dataset_path + "dataset.json")
+    json_data = _read_json(os.path.join(dataset_path, "dataset.json"))
     images_and_scores = []
     for entry in json_data["entries"]:
-        filename = dataset_path + entry["filename"]
+        filename = os.path.join(dataset_path, entry["filename"])
         score = entry["score"]
         _validate_filename(filename)
         _validate_score(score)

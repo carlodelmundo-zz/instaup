@@ -29,3 +29,12 @@ py_library(
         ":utils",
     ],
 )
+
+py_library(
+    name = "json_writer",
+    srcs = ["json_writer.py"],
+    srcs_version = "PY3",
+    deps = [
+        ":utils",
+    ],
+)
