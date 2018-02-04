@@ -11,3 +11,13 @@ py_test(
         "//core:regression_dataset"
     ]
 )
+
+py_test(
+    name = "utils_test",
+    srcs = ["utils_test.py"],
+    default_python_version = "PY3",
+    srcs_version = "PY3",
+    deps = [
+        "//core:utils"
+    ]
+)
