@@ -16,3 +16,16 @@ py_library(
     srcs = ["utils.py"],
     srcs_version = "PY3",
 )
+
+py_library(
+    name = "inference",
+    srcs = ["inference.py"],
+    srcs_version = "PY3",
+    data = [
+        "@resnet18//file",
+    ],
+    deps = [
+        ":regression_dataset",
+        ":utils",
+    ],
+)

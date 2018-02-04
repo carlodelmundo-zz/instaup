@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
+# Author: Carlo C. del Mundo <cdel@cs.washington.edu>
+from core import regression_dataset
 import torch
 from torch import nn
 from torch import optim
-from torchvision import transforms
-from core import regression_dataset
 from torchvision.models import resnet
+from torchvision import transforms
 from torch.autograd import Variable
 
 _SAMPLE_DATASET_PATH = "/opt/datasets/sample_dataset/"
 _MODEL_PATH = "external/resnet18/file/regression-model.pkl"
 
-def data_loaders(batch_size):
+
+def _loader(dataset_path, batch_size):
+    '''Returns a DataLoader that emits (image_data, score) tuples. Dataset is
+    randomly shuffled and randomly cropped.'''
     _IMAGENET_MEAN = [0.485, 0.456, 0.406]
     _IMAGENET_STD = [0.229, 0.224, 0.225]
     transform = transforms.Compose([
@@ -19,16 +23,14 @@ def data_loaders(batch_size):
         transforms.ToTensor(),
         transforms.Normalize(_IMAGENET_MEAN, _IMAGENET_STD),
     ])
-    trainset = regression_dataset.RegressionDataset(_SAMPLE_DATASET_PATH,
-                                                    transform)
-    trainloader = torch.utils.data.DataLoader(
-        trainset, batch_size=batch_size, shuffle=True, num_workers=4)
-    testloader = torch.utils.data.DataLoader(
-        trainset, batch_size=batch_size, shuffle=False, num_workers=4)
-    return trainloader, testloader
+    dataset = regression_dataset.RegressionDataset(dataset_path, transform)
+    data_loader = torch.utils.data.DataLoader(
+        dataset, batch_size=batch_size, shuffle=True, num_workers=4)
+    return data_loader
+
 
 def train_network(batch_size, epochs):
-    train_loader, test_loader = data_loaders(batch_size)
+    train_loader = _loader(_SAMPLE_DATASET_PATH, batch_size)
     # Typically, num_classes specifies the number of object classes in image
     # classification. Here, we fix num_classes to 1 since we are regressing,
     # and not classifying. The output of an inference is a single number.

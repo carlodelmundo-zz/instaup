@@ -21,3 +21,14 @@ py_test(
         "//core:utils"
     ]
 )
+
+py_test(
+    name = "inference_test",
+    srcs = ["inference_test.py"],
+    default_python_version = "PY3",
+    srcs_version = "PY3",
+    deps = [
+        "//core:inference",
+        "//core:utils"
+    ]
+)
