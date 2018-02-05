@@ -1,6 +1,6 @@
 # What is this?
 
-This is the official repository for Content Booster written in Python 3.
+This is the official repository for InstaUp! written in Python 3.
 Supported primarily with Ubuntu 16.04 systems. 
 
 You must have the following installed to run tests and executables:
