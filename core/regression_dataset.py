@@ -23,14 +23,6 @@ def _validate_filename(filename):
             "The filename {} is not a valid image file.".format(filename))
 
 
-def _validate_score(score):
-    if score < 0.0:
-        raise ValueError("The score {} may not be negative.".format(score))
-    if score > 1.0:
-        raise ValueError(
-            "The score {} may not be greater than 1.0.".format(score))
-
-
 def _images_and_scores(dataset_path):
     json_data = _read_json(os.path.join(dataset_path, "dataset.json"))
     images_and_scores = []
@@ -38,7 +30,6 @@ def _images_and_scores(dataset_path):
         filename = os.path.join(dataset_path, entry["filename"])
         score = entry["score"]
         _validate_filename(filename)
-        _validate_score(score)
         images_and_scores.append((filename, score))
     return images_and_scores
 
