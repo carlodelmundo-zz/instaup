@@ -9,7 +9,6 @@ py_binary(
     srcs_version = "PY3",
     deps = [
         "//core:inference",
-        "//core:json_writer",
         "//core:utils",
     ],
 )
@@ -25,4 +24,29 @@ py_binary(
     deps = [
         "//core:regression_dataset",
     ],
+)
+
+py_binary(
+    name = "web_demo",
+    srcs = ["web_demo.py"],
+    main = "web_demo.py",
+    srcs_version = "PY3",
+    data = [
+        ":static",
+        ":templates",
+    ],
+    deps = [
+        "//core:inference",
+        "//core:utils",
+    ],
+)
+
+filegroup(
+    name = "templates",
+    srcs = glob(["templates/**"]),
+)
+
+filegroup(
+    name = "static",
+    srcs = glob(["static/**"]),
 )

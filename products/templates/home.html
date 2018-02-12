@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        {% extends "layout.html" %}
+        {% block content %}
+        <div class="home">
+            <h1>Upload Images</h1>
+            <p>Upload a .zip containing the images you wish to use.</p>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="data_file" />
+                <input type="submit" />
+            </form>
+        </div>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        {% extends "layout.html" %}
+        {% block content %}
+        <div class="home">
+            <h1>Top Images (sorted by decreasing popularity)</h1>
+            <body>
+                {% if results %}
+                    <table>
+                        <tbody>
+                        {% for img_name in results %}
+                            {% set orig = img_name.split('-')[1] %}
+                            <tr>
+                                <td>{{ img_name }}</td>
+                                <td>
+                                    <a href={{url_for('send_file', filename=orig)}}>
+                                      <img src="{{ url_for('send_file', filename=img_name) }}" alt="Image">
+                                    </a>
+                                </td>
+                                <td>{{ scores[loop.index0] }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </body>
+        </div>
+        {% endblock %}
+    </body>
+</html>

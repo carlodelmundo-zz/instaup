@@ -25,6 +25,7 @@ py_library(
         "@resnet18//file",
     ],
     deps = [
+        ":json_writer",
         ":regression_dataset",
         ":utils",
     ],
