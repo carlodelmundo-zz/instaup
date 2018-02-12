@@ -2,7 +2,7 @@
 #
 
 http_file(
-   name = "resnet18",
+   name = "selfies_resnet18",
    url = "https://homes.cs.washington.edu/~cdel/contentbooster/regression-model.pkl",
-   sha256 = "e5ae10941f676ed58a2bd35d39a3320d86cec640e8011a189bb9ca517e98bb75",
+   sha256 = "f56ffa04063abc2954d444912994fe0f05da2d437a76fe4cda62e87e8364b461",
 )

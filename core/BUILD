@@ -22,7 +22,7 @@ py_library(
     srcs = ["inference.py"],
     srcs_version = "PY3",
     data = [
-        "@resnet18//file",
+        "@selfies_resnet18//file",
     ],
     deps = [
         ":json_writer",
