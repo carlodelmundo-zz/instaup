@@ -19,7 +19,7 @@ py_binary(
     main = "model_trainer.py",
     srcs_version = "PY3",
     data = [
-        "@resnet18//file",
+        "@selfies-resnet18//file",
     ],
     deps = [
         "//core:regression_dataset",
