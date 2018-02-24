@@ -9,7 +9,7 @@ from torch.autograd import Variable
 from torchvision.models import resnet
 from torchvision import transforms
 
-_MODEL_PATH = "external/selfies_resnet18/file/regression-model.pkl"
+_MODEL_PATH = "external/selfies_resnet18/file/regression-model-cpu-20180224.pkl"
 
 
 def _loader(dataset_path, batch_size):

@@ -19,7 +19,7 @@ from torch.autograd import Variable
 
 # Which base model to use. This model is a pretrained ResNet-18 model trained
 # for classification, but repurposed for regression.
-_DEFAULT_MODEL_PATH = "external/selfies_resnet18/file/regression-model.pkl"
+_DEFAULT_MODEL_PATH = "external/selfies_resnet18/file/regression-model-cpu-20180224.pkl"
 # Save models in the user's home directory. Only the latest model is saved.
 _MODEL_SNAPSHOT_DIR = "~/"
 
@@ -45,6 +45,9 @@ def _save_model(model):
     output_dir = os.path.expanduser(_MODEL_SNAPSHOT_DIR)
     output_path = os.path.join(output_dir, "regression-model.pkl")
     print("Snapshotting model to {}".format(output_path))
+    # Transfer model back to the CPU so inference engines without GPU support
+    # can still run the model.
+    model.cpu()
     torch.save(model.state_dict(), output_path)
 
 
@@ -69,8 +72,9 @@ def train_network(model_path, dataset, batch_size):
             loss.backward()
             optimizer.step()
             print("Mean squared error (loss) = {}".format(loss.data[0]))
-        if (epoch + 1) % 1000 == 0:
+        if (epoch + 1) % 100 == 0:
             _save_model(net)
+            net.cuda()
 
 
 if __name__ == "__main__":
