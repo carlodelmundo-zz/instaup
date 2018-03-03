@@ -3,6 +3,6 @@
 
 http_file(
    name = "selfies_resnet18",
-   url = "https://homes.cs.washington.edu/~cdel/contentbooster/regression-model-cpu-20180224.pkl",
-   sha256 = "407e8a92eb58a9bc024261f74b6a992f2e056ceba27386eb149650f6538cedc3",
+   url = "https://homes.cs.washington.edu/~cdel/contentbooster/regression-model-cpu-20180301.pkl",
+   sha256 = "3bea4f5c19c3714515ee132e84417050978f80740b285ab4d18e8be7f2f376cb",
 )
