@@ -19,7 +19,7 @@ from torch.autograd import Variable
 
 # Which base model to use. This model is a pretrained ResNet-18 model trained
 # for classification, but repurposed for regression.
-_DEFAULT_MODEL_PATH = "external/selfies_resnet18/file/regression-model-cpu-20180224.pkl"
+_DEFAULT_MODEL_PATH = "external/selfies_resnet18/file/regression-model-cpu-20180301.pkl"
 # Save models in the user's home directory. Only the latest model is saved.
 _MODEL_SNAPSHOT_DIR = "~/"
 
